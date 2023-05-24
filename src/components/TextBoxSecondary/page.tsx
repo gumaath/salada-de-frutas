@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
+import { StaticImageData } from 'next/image';
 import { VT323 } from 'next/font/google';
 
 const vt = VT323({
@@ -18,9 +18,15 @@ const TextBoxSecondary: React.FC<MyComponentProps> = ({ title, body, imageSrc })
         <h3 className={`${vt.className} letraTitulo`}>{title}</h3>
         <p className='font-robotomono'>{body}</p>
       </div>
-      <div>
-        <Image src={imageSrc} alt={''}/>
-      </div>
+      <div 
+        className="min-h-[600px] min-w-[40%]"
+        style={{
+          backgroundImage: `url(${imageSrc.src})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover'
+        }}
+      />
     </div>
   )
 }
